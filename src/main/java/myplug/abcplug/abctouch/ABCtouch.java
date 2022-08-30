@@ -12,11 +12,12 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.event.entity.EntityInteractEvent;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityInteractEvent;
 
-
-public abstract class ABCtouch implements Player {
-    @Subscribe
-    public void EntityInteractEvent(@NotNull Player who, @NotNull Action action, @Nullable ItemStack item, @Nullable Block clickedBlock, @NotNull BlockFace clickedFace) {
+public class ABCtouch implements Listener {
+    @EventHandler
+    public void PlayerInteractEvent(@NotNull Player who, @NotNull Action action, @Nullable ItemStack item, @Nullable Block clickedBlock, @NotNull BlockFace clickedFace) {
         who.chat("тык");
     }
 }
