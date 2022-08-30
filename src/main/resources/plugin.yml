@@ -1,0 +1,4 @@
+name: ABCplug
+version: '${project.version}'
+main: myplug.abcplug.ABCplug
+api-version: 1.18
