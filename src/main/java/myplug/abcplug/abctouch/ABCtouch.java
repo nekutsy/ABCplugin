@@ -18,7 +18,7 @@ import org.bukkit.event.entity.EntityInteractEvent;
 
 public class ABCtouch implements Listener {
     @EventHandler
-    public void BlockBreakEvent(@NotNull Block theBlock, @NotNull Player player) {
-        player.chat("1");
+    public void BlockBreakEvent(PlayerInteractEvent event) {
+        event.getPlayer().chat("1");
     }
 }
