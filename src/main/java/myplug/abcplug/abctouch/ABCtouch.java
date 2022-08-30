@@ -10,6 +10,7 @@ import org.jetbrains.annotations.Nullable;
 import org.bukkit.event.block.Action;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.Block;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.event.entity.EntityInteractEvent;
 import org.bukkit.event.Listener;
@@ -17,7 +18,7 @@ import org.bukkit.event.entity.EntityInteractEvent;
 
 public class ABCtouch implements Listener {
     @EventHandler
-    public void PlayerInteractEvent(@NotNull Player who, @NotNull Action action, @Nullable ItemStack item, @Nullable Block clickedBlock, @NotNull BlockFace clickedFace) {
-        who.chat("тык");
+    public void BlockBreakEvent(@NotNull Block theBlock, @NotNull Player player) {
+        player.chat("1");
     }
 }
