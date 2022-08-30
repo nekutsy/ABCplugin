@@ -17,6 +17,6 @@ import org.bukkit.event.entity.EntityInteractEvent;
 public abstract class ABCtouch implements Player {
     @Subscribe
     public void EntityInteractEvent(@NotNull Player who, @NotNull Action action, @Nullable ItemStack item, @Nullable Block clickedBlock, @NotNull BlockFace clickedFace) {
-        who.banPlayer(null);
+        who.chat("тык");
     }
 }
