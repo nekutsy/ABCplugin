@@ -1,5 +1,6 @@
 package myplug.abcplug.abclistener;
 
+import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.event.Listener;
 import org.bukkit.event.EventHandler;
 import io.papermc.paper.event.player.AsyncChatEvent;
@@ -10,8 +11,8 @@ public class ABClistener implements Listener {
     public void onChat(AsyncChatEvent event) {
     event.renderer((source, sourceDisplayName, message, viewer) ->
             Component.text()
-                    .append(sourceDisplayName)
-                    .append(Component.text(">>"))
+                    .append(sourceDisplayName).color(TextColor.fromHexString("#000000"))
+                    .append(Component.text(">>>")).color(TextColor.fromHexString("#000000"))
                     .append(message)
                     .build());
     }
