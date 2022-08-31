@@ -1,10 +1,13 @@
 package myplug.abcplug.abclistener;
 
+import myplug.abcplug.ABCplug;
+
 import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.event.Listener;
 import org.bukkit.event.EventHandler;
 import io.papermc.paper.event.player.AsyncChatEvent;
 import net.kyori.adventure.text.Component;
+import org.bukkit.event.player.PlayerJoinEvent;
 
 public class ABClistener implements Listener {
 @EventHandler
@@ -15,5 +18,10 @@ public class ABClistener implements Listener {
                     .append(Component.text(">>>").color(TextColor.fromHexString("#008800")))
                     .append(message.color(TextColor.fromHexString("#AAAAAA")))
                     .build());
+    }
+
+    @EventHandler
+    public void onJoin(PlayerJoinEvent event) {
+    event.getPlayer().chat(ABCplug.getInstance().getConfig().getString("join"));
     }
 }
