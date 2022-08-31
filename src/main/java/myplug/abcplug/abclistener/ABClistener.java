@@ -22,6 +22,6 @@ public class ABClistener implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-    event.getPlayer().chat(ABCplug.getInstance().getConfig().getString("join"));
+    event.getPlayer().chat(ABCplug.config.getString("join"));
     }
 }
