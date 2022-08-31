@@ -25,6 +25,7 @@ public final class ABCplug extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+        saveConfig();
         Bukkit.getPluginManager().registerEvents(new ABClistener(), this);
         Bukkit.getPluginManager().registerEvents(new ABCtouch(), this);
     }
