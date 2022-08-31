@@ -19,6 +19,9 @@ import org.bukkit.inventory.ItemStack;
 
 public final class ABCplug extends JavaPlugin {
     private static ABCplug instance;
+    public static ABCplug getInstance() {
+        return instance;
+    }
     @Override
     public void onEnable() {
         instance = this;
