@@ -53,9 +53,6 @@ public final class ABCplug extends JavaPlugin {
         usersFile = new File(getDataFolder(), "users.yml");
         historyFile = new File(getDataFolder(), "history.yml");
 
-        try {
-            firstRun();
-        } catch (Exception e) { e.printStackTrace(); }
         config = new YamlConfiguration();
         groups = new YamlConfiguration();
         users = new YamlConfiguration();
