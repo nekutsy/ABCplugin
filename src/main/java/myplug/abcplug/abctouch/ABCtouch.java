@@ -41,7 +41,7 @@ public class ABCtouch implements Listener {
             if (userConf.getConfigurationSection(p.getName()) == null) {
                 userConf.createSection(p.getName());
             }
-            if (!userConf.getConfigurationSection(p.getName()).contains(conf.getString(name + ".name"))) {
+            if (!userConf.getString(p.getName()).contains(conf.getString(name + ".name"))) {
                 p.sendMessage(Component.text("+9999999 MONEY"));
                 Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), conf.getString(name + ".command"));
                 userConf.set(p.getName() + "." + conf.getString(name + ".name"), name);
