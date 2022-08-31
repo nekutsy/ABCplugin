@@ -24,7 +24,7 @@ public final class ABCplug extends JavaPlugin {
     }
 
     private void configInit() {
-        configFile = new File(getDataFolder(), "config.yml");
+        configFile = new File("ABCplugin/config.yml");
         loadYamls();
     }
     public void saveYamls() {
@@ -45,7 +45,6 @@ public final class ABCplug extends JavaPlugin {
     public void onEnable() {
         instance = this;
         configInit();
-        loadYamls();
         Bukkit.getPluginManager().registerEvents(new ABClistener(), this);
         Bukkit.getPluginManager().registerEvents(new ABCtouch(), this);
     }
