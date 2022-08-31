@@ -12,7 +12,7 @@ public class ABClistener implements Listener {
     event.renderer((source, sourceDisplayName, message, viewer) ->
             Component.text()
                     .append(sourceDisplayName.color(TextColor.fromHexString("#00AA00")))
-                    .append(Component.text(">>>").color(TextColor.fromHexString("#00CC00")))
+                    .append(Component.text(">>>").color(TextColor.fromHexString("#008800")))
                     .append(message.color(TextColor.fromHexString("#AAAAAA")))
                     .build());
     }
