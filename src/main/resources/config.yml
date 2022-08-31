@@ -1,6 +1,6 @@
 system:
-  firstLoad: "true"
   clickCounter: 0
 
 text:
   join: "test text"
+  enablePlugin: "enables!!!!11!!!"
