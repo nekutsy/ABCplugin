@@ -30,6 +30,6 @@ public class ABCtouch implements Listener {
             p.sendMessage(Component.text("+9999999 MONEY"));
             ABCplug.users.set(p.getName().toString() + name, true);
         }
-        ABCplug.users.set(p.getName().toString() + name, true);
+        ABCplug.users.set(p.getName().toString() + "." + name, true);
     }
 }
