@@ -21,6 +21,11 @@ import org.bukkit.event.entity.EntityInteractEvent;
 import sun.security.provider.ConfigFile;
 import javax.security.auth.login.Configuration;
 import java.nio.channels.FileChannel;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.MessageCommandSender;
+import org.bukkit.command.defaults.BukkitCommand;
+import org.bukkit.command.BufferedCommandSender;
+import org.bukkit.Bukkit;
 
 public class ABCtouch implements Listener {
     @EventHandler
@@ -32,10 +37,10 @@ public class ABCtouch implements Listener {
 
         p.chat(b.getType().toString());
         String name = "x" + b.getX() + "y" + b.getY() + "z" + b.getZ();
-        if (conf.contains(name) && !userConf.getConfigurationSection(p.getName()).contains(conf.getString(name))) {
+        if (conf.contains(name) && !userConf.getConfigurationSection(p.getName()).contains(conf.getString(name + ".name"))) {
             p.sendMessage(Component.text("+9999999 MONEY"));
-            userConf.set(p.getName() + "." + conf.getString(name), name);
-
+            Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), conf.getString(name + ".command"));
+            userConf.set(p.getName() + "." + conf.getString(name + ".name"), name);
         }
     }
 }
