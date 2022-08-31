@@ -32,7 +32,7 @@ public class ABCtouch implements Listener {
 
         p.chat(b.getType().toString());
         String name = "x" + b.getX() + "y" + b.getY() + "z" + b.getZ();
-        if (conf.contains(name) && !userConf.contains(conf.getString(name))) {
+        if (conf.contains(name) && !userConf.getConfigurationSection(p.getName()).contains(conf.getString(name))) {
             p.sendMessage(Component.text("+9999999 MONEY"));
             userConf.set(p.getName() + "." + conf.getString(name), name);
 
