@@ -33,7 +33,6 @@ public class ABCtouch implements Listener {
     public void BlockBreakEvent(PlayerInteractEvent event) {
         if (event.getClickedBlock() != null) {
             try {
-                Location loc = event.getInteractionPoint();
                 Block b = event.getClickedBlock();
                 Player p = event.getPlayer();
                 FileConfiguration conf = ABCplug.config;
