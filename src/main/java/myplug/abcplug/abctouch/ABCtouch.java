@@ -3,6 +3,7 @@ package myplug.abcplug.abctouch;
 import com.google.common.eventbus.Subscribe;
 import myplug.abcplug.ABCplug;
 import net.kyori.adventure.text.Component;
+import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -30,26 +31,29 @@ import org.bukkit.Bukkit;
 public class ABCtouch implements Listener {
     @EventHandler
     public void BlockBreakEvent(PlayerInteractEvent event) {
-        try {
-            Block b = event.getClickedBlock();
-            Player p = event.getPlayer();
-            FileConfiguration conf = ABCplug.config;
-            FileConfiguration userConf = ABCplug.users;
+        if (event.getClickedBlock() != null) {
+            try {
+                Location loc = event.getInteractionPoint();
+                Block b = event.getClickedBlock();
+                Player p = event.getPlayer();
+                FileConfiguration conf = ABCplug.config;
+                FileConfiguration userConf = ABCplug.users;
 
-            //p.chat(b.getType().toString());
-            String name = "x" + b.getX() + "y" + b.getY() + "z" + b.getZ();
-            if (conf.contains(name)) {
-                if (!userConf.contains(p.getName())) {
-                    userConf.createSection(p.getName());
-                } else {
-                    if (conf.getString(name + ".name") != null && !userConf.contains(p.getName() + "." + conf.getString(name + ".name"))) {
-                        Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), conf.getString(name + ".command").replace("_player", p.getName()));
-                        userConf.set(p.getName() + "." + conf.getString(name + ".name"), name);
+                //p.chat(b.getType().toString());
+                String name = "x" + b.getX() + "y" + b.getY() + "z" + b.getZ();
+                if (conf.contains(name)) {
+                    if (!userConf.contains(p.getName())) {
+                        userConf.createSection(p.getName());
+                    } else {
+                        if (conf.getString(name + ".name") != null && !userConf.contains(p.getName() + "." + conf.getString(name + ".name"))) {
+                            Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), conf.getString(name + ".command").replace("_player", p.getName()));
+                            userConf.set(p.getName() + "." + conf.getString(name + ".name"), name);
+                        }
                     }
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
     /*
